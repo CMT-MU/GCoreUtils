@@ -14,6 +14,14 @@ You can also visit
 ## Authors
 Hiroaki Kusunose
 
-## Documentation
 
-Refer to the [documentation](https://cmt-mu.github.io/GCoreUtils/) for detailed installation and usage details.
+## Features
+- manage binary file
+- text conversion
+- eigen system
+- LaTeX utility
+- string utility
+- plot utility
+- combined numpy and sympy array
+- pdf creation
+- ....
