@@ -25,3 +25,7 @@ Hiroaki Kusunose
 - combined numpy and sympy array
 - pdf creation
 - ....
+
+## Changes
+- [version 1.1.2](ver1.1.2.md)
+- [version 1.1.1](ver1.1.1.md)
