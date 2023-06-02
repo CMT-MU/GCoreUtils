@@ -1,5 +1,5 @@
 # GCoreUtils
 
-Changes in version 1.1.1
+Changes in version 1.1.2
 
 - first release
