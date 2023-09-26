@@ -1323,7 +1323,7 @@ class NSArray(np.ndarray):
             v = self.convert_bond("bond")[0]
             s = NSArray._apply(lambda i: sp.Matrix(i).norm().expand(), v, v.style)
         else:
-            s = NSArray._elementwise(lambda i: sp.Abs(i).expand(), self)
+            s = NSArray._elementwise(lambda i: sp.sqrtdenest(sp.sqrt(i * i.conjugate())), self)
         s = NSArray(s, "scalar", fmt=self.fmt, real=self.is_real)
         return s
 
