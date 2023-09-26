@@ -1318,10 +1318,10 @@ class NSArray(np.ndarray):
             - for bond, return bond lengths, and for scalar, return absolute values.
         """
         if self.style in ["vector", "matrix"]:
-            s = NSArray._apply(lambda i: sp.Matrix(i).norm().expand(), self, self.style)
+            s = NSArray._apply(lambda i: sp.sqrtdenest(sp.sqrt(sp.trace(sp.Matrix(i).H @ sp.Matrix(i)))), self, self.style)
         elif self.style in ["bond", "bond_th", "bond_sv"]:
             v = self.convert_bond("bond")[0]
-            s = NSArray._apply(lambda i: sp.Matrix(i).norm().expand(), v, v.style)
+            s = NSArray._apply(lambda i: sp.sqrtdenest(sp.sqrt(sp.trace(sp.Matrix(i).H @ sp.Matrix(i)))), v, v.style)
         else:
             s = NSArray._elementwise(lambda i: sp.sqrtdenest(sp.sqrt(i * i.conjugate())), self)
         s = NSArray(s, "scalar", fmt=self.fmt, real=self.is_real)
@@ -1411,9 +1411,8 @@ class NSArray(np.ndarray):
             s = nulvec.copy()
             for evi in ev:
                 s += NSArray.dot(evi, v0) * evi
-                # s = NSArray._elementwise(lambda i: i.radsimp(), s)
             e = v0 - s
-            d = e.radsimp().norm()
+            d = e.norm()
             if d != 0:
                 e = e / d
                 e = e.radsimp()
