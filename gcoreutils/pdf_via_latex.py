@@ -174,7 +174,7 @@ class PDFviaLaTeX:
             r"\marginparwidth=0truemm",
             "\n%%% main text\n",
             r"\begin{document}" + "\n",
-            r"\setcounter{MaxMatrixCols}{16}" + "\n",
+            r"\setcounter{MaxMatrixCols}{32}" + "\n",
         ]
         if no_page:
             preamble.append(r"\pagestyle{empty}" + "\n")
