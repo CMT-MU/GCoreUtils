@@ -24,6 +24,7 @@ Hiroaki Kusunose
 - plot utility
 - combined numpy and sympy array
 - pdf creation
+- color palette
 - ....
 
 ## Change Log
