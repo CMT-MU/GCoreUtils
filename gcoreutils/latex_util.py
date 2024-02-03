@@ -1,7 +1,8 @@
 """
 utility for latex.
 """
-from distutils.spawn import find_executable
+
+from shutil import which
 import os
 import subprocess
 import matplotlib.pyplot as plt
@@ -17,7 +18,7 @@ def check_latex_installed():
     Returns:
         bool: True if installed.
     """
-    return find_executable(latex_cmd)
+    return which(latex_cmd)
 
 
 # ==================================================
@@ -58,8 +59,16 @@ def latex_setting(mode):
         import subprocess
         import matplotlib.font_manager as font_manager
 
-        kpse_cp = subprocess.run(["kpsewhich", "-var-value", "TEXMFDIST"], capture_output=True, check=True)
-        font_loc1 = os.path.join(kpse_cp.stdout.decode("utf8").strip(), "fonts", "opentype", "public", "tex-gyre")
+        kpse_cp = subprocess.run(
+            ["kpsewhich", "-var-value", "TEXMFDIST"], capture_output=True, check=True
+        )
+        font_loc1 = os.path.join(
+            kpse_cp.stdout.decode("utf8").strip(),
+            "fonts",
+            "opentype",
+            "public",
+            "tex-gyre",
+        )
         font_dirs = [font_loc1]
         font_files = font_manager.findSystemFonts(fontpaths=font_dirs)
         for font_file in font_files:
