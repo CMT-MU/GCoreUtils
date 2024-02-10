@@ -2,6 +2,14 @@
 
 Functions and classes for general purpose.
 
+```{eval-rst}
+.. autosummary::
+    gcoreutils.binary_manager
+    gcoreutils.pdf_via_latex
+    gcoreutils.symdict
+    gcoreutils.symlist
+```
+
 ## Binary data
 ```{eval-rst}
 .. automodule:: gcoreutils.binary_manager

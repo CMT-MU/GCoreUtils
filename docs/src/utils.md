@@ -2,6 +2,17 @@
 
 Utility functions and classes for general purpose
 
+```{eval-rst}
+.. autosummary::
+    gcoreutils.basic_util
+    gcoreutils.io_util
+    gcoreutils.string_util
+    gcoreutils.list_util
+    gcoreutils.crystal_util
+    gcoreutils.convert_util
+    gcoreutils.latex_util
+```
+
 ## Basic
 ```{eval-rst}
 .. automodule:: gcoreutils.basic_util
