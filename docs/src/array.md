@@ -1,19 +1,13 @@
-Data Container
-==============
+# Data Container
 
 array and data container
 
-====
-
-NSArray
--------
-
+## NSArray
+```{eval-rst}
 .. automodule:: gcoreutils.nsarray
+```
 
-
-====
-
-DataSet
--------
-
+## DataSet
+```{eval-rst}
 .. automodule:: gcoreutils.dataset
+```
