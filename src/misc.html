@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+
+
+<html lang="jp" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Misc. &#8212; GCoreUtils</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=8cf54648"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/misc';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Change Logs (not in tags)" href="change_log.html" />
+    <link rel="prev" title="General Utility" href="utils.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="jp"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GCoreUtils</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="array.html">Data Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="la.html">Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">General Utility</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Misc.</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Change Log</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Logs (not in tags)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/CMT-MU/GCoreUtils.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Misc.</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.binary_manager">Binary data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager"><code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager.__init__"><code class="docutils literal notranslate"><span class="pre">BinaryManager.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager.load"><code class="docutils literal notranslate"><span class="pre">BinaryManager.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.pdf_via_latex">PDF via LaTeX</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.__init__"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.equation"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.equation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.figure"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.figure()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.simple_table"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.simple_table()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.table"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.table()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.text"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.text()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.title"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.title()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.symdict">Calculatable dictionary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict"><code class="docutils literal notranslate"><span class="pre">SymDict</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.__init__"><code class="docutils literal notranslate"><span class="pre">SymDict.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.remove_zero"><code class="docutils literal notranslate"><span class="pre">SymDict.remove_zero()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.simplify"><code class="docutils literal notranslate"><span class="pre">SymDict.simplify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.symlist">Calculatable list</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList"><code class="docutils literal notranslate"><span class="pre">SymList</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList.__init__"><code class="docutils literal notranslate"><span class="pre">SymList.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList.simplify"><code class="docutils literal notranslate"><span class="pre">SymList.simplify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="misc">
+<h1>Misc.<a class="headerlink" href="#misc" title="Link to this heading">#</a></h1>
+<p>Functions and classes for general purpose.</p>
+<section id="module-gcoreutils.binary_manager">
+<span id="binary-data"></span><h2>Binary data<a class="headerlink" href="#module-gcoreutils.binary_manager" title="Link to this heading">#</a></h2>
+<p>This class manages binary data.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gcoreutils.binary_manager.BinaryManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BinaryManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bin_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/binary_manager.html#BinaryManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.binary_manager.BinaryManager" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>binary data manager.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.binary_manager.BinaryManager.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bin_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/binary_manager.html#BinaryManager.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.binary_manager.BinaryManager.__init__" title="Link to this definition">#</a></dt>
+<dd><p>initialize the class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bin_dir</strong> (<em>str</em><em>, </em><em>optional</em>) -- directory for binary files.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) -- write message ?</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.binary_manager.BinaryManager.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/binary_manager.html#BinaryManager.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.binary_manager.BinaryManager.load" title="Link to this definition">#</a></dt>
+<dd><p>load all binary data in bin_dir.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-gcoreutils.pdf_via_latex">
+<span id="pdf-via-latex"></span><h2>PDF via LaTeX<a class="headerlink" href="#module-gcoreutils.pdf_via_latex" title="Link to this heading">#</a></h2>
+<p>This class mangaes PDF creation via LaTeX.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PDFviaLaTeX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'normal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">landscape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">english</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>PDF creation via LaTeX.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'normal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">landscape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">english</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.__init__" title="Link to this definition">#</a></dt>
+<dd><p>initialize the class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fname</strong> (<em>str</em>) -- file name without &quot;.tex&quot;</p></li>
+<li><p><strong>package</strong> (<em>list</em><em>, </em><em>optional</em>) -- package [(name,option)]</p></li>
+<li><p><strong>style</strong> (<em>str</em><em>, </em><em>optional</em>) -- margin style (narrowest/narrow/normal/wide/widest)</p></li>
+<li><p><strong>pt</strong> (<em>int</em><em>, </em><em>optional</em>) -- default point (8/9/10/11/12/14)</p></li>
+<li><p><strong>no_page</strong> (<em>bool</em><em>, </em><em>optional</em>) -- no page number ?</p></li>
+<li><p><strong>landscape</strong> (<em>bool</em><em>, </em><em>optional</em>) -- landscape ?</p></li>
+<li><p><strong>english</strong> (<em>bool</em><em>, </em><em>optional</em>) -- english mode ?</p></li>
+<li><p><strong>dir</strong> (<em>str</em><em>, </em><em>optional</em>) -- output directory</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX.equation">
+<span class="sig-name descname"><span class="pre">equation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX.equation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.equation" title="Link to this definition">#</a></dt>
+<dd><p>add equation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eqs</strong> (<em>str</em><em> or </em><em>list</em>) -- equation or list of eqs.</p></li>
+<li><p><strong>num</strong> (<em>bool</em><em>, </em><em>optional</em>) -- with eq. number ?</p></li>
+<li><p><strong>long</strong> (<em>bool</em><em>, </em><em>optional</em>) -- long eq. ? (single eq. only)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX.figure">
+<span class="sig-name descname"><span class="pre">figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'c'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX.figure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.figure" title="Link to this definition">#</a></dt>
+<dd><p>add figure (not in the figure environment, if caption is empty).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fname</strong> (<em>str</em>) -- file name of figure</p></li>
+<li><p><strong>width</strong> (<em>float</em><em>, </em><em>optional</em>) -- figure width relative to page width</p></li>
+<li><p><strong>pos</strong> (<em>str</em><em>, </em><em>optional</em>) -- position (c/l/r) (center/left/right)</p></li>
+<li><p><strong>caption</strong> (<em>str</em><em>, </em><em>optional</em>) -- caption of figure</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX.simple_table">
+<span class="sig-name descname"><span class="pre">simple_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tbl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX.simple_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.simple_table" title="Link to this definition">#</a></dt>
+<dd><p>add simple table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tbl</strong> (<em>list</em>) -- content of table (1d or 2d)</p></li>
+<li><p><strong>cols</strong> (<em>int</em><em>, </em><em>optional</em>) -- number of columns</p></li>
+<li><p><strong>cpos</strong> (<em>str</em><em>, </em><em>optional</em>) -- position of each cols. default is center</p></li>
+<li><p><strong>tmath</strong> (<em>bool</em><em>, </em><em>optional</em>) -- math mode ?</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX.table">
+<span class="sig-name descname"><span class="pre">table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tbl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stretch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rcmath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX.table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.table" title="Link to this definition">#</a></dt>
+<dd><p>add table (reshaped by using number of col).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>&quot;long&quot;</strong> (<em>same as self.table</em><em>(</em><em>) </em><em>except</em>) -- </p></li>
+<li><p><strong>tbl</strong> (<em>list</em>) -- content of table [[str]]</p></li>
+<li><p><strong>row</strong> (<em>list</em>) -- row name [str]</p></li>
+<li><p><strong>col</strong> (<em>list</em>) -- column name [str]</p></li>
+<li><p><strong>rc</strong> (<em>str</em><em>, </em><em>optional</em>) -- row-col name</p></li>
+<li><p><strong>hl</strong> (<em>list</em><em>, </em><em>optional</em>) -- position with horizontal line [int]. if True, use horizontal lines for all lines</p></li>
+<li><p><strong>caption</strong> (<em>str</em><em>, </em><em>optional</em>) -- table caption</p></li>
+<li><p><strong>stretch</strong> (<em>float</em><em>, </em><em>optional</em>) -- baseline stretch (ratio)</p></li>
+<li><p><strong>cpos</strong> (<em>str</em><em>, </em><em>optional</em>) -- column position. default is center</p></li>
+<li><p><strong>rcmath</strong> (<em>bool</em><em>, </em><em>optional</em>) -- math mode for row-col name ?</p></li>
+<li><p><strong>rmath</strong> (<em>bool</em><em>, </em><em>optional</em>) -- math mode for row name ?</p></li>
+<li><p><strong>cmath</strong> (<em>bool</em><em>, </em><em>optional</em>) -- math mode for column name ?</p></li>
+<li><p><strong>tmath</strong> (<em>bool</em><em>, </em><em>optional</em>) -- math mode for table ?</p></li>
+<li><p><strong>long</strong> (<em>bool</em><em>, </em><em>optional</em>) -- long table ?</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX.text">
+<span class="sig-name descname"><span class="pre">text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX.text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.text" title="Link to this definition">#</a></dt>
+<dd><p>add text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>content</strong> (<em>str</em><em> or </em><em>list</em><em>, </em><em>optional</em>) -- text</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX.title">
+<span class="sig-name descname"><span class="pre">title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LARGE'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'c'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX.title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.title" title="Link to this definition">#</a></dt>
+<dd><p>add title.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<em>str</em>) -- title</p></li>
+<li><p><strong>size</strong> (<em>str</em><em>, </em><em>optional</em>) -- font size (large/Large/LARGE/Huge)</p></li>
+<li><p><strong>pos</strong> (<em>str</em><em>, </em><em>optional</em>) -- position (c/l/r) (center/left/right)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-gcoreutils.symdict">
+<span id="calculatable-dictionary"></span><h2>Calculatable dictionary<a class="headerlink" href="#module-gcoreutils.symdict" title="Link to this heading">#</a></h2>
+<p>This class is calculatable with sympy.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gcoreutils.symdict.SymDict">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SymDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symdict.html#SymDict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symdict.SymDict" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.symdict.SymDict.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symdict.html#SymDict.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symdict.SymDict.__init__" title="Link to this definition">#</a></dt>
+<dd><p>initialize dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dic</strong> (<em>dict</em><em>, </em><em>optional</em>) -- dictionary.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) -- keywords to initialize the dictionary.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.symdict.SymDict.remove_zero">
+<span class="sig-name descname"><span class="pre">remove_zero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symdict.html#SymDict.remove_zero"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symdict.SymDict.remove_zero" title="Link to this definition">#</a></dt>
+<dd><p>remove zero values from dict.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.symdict.SymDict.simplify">
+<span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'factor'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symdict.html#SymDict.simplify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symdict.SymDict.simplify" title="Link to this definition">#</a></dt>
+<dd><p>simplify dict values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>type</strong> (<em>str</em><em>, </em><em>optional</em>) -- type of simplification, <code class="docutils literal notranslate"><span class="pre">factor/expand/cancel/simplify</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-gcoreutils.symlist">
+<span id="calculatable-list"></span><h2>Calculatable list<a class="headerlink" href="#module-gcoreutils.symlist" title="Link to this heading">#</a></h2>
+<p>This class is calculatable with sympy.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gcoreutils.symlist.SymList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SymList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symlist.html#SymList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symlist.SymList" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.symlist.SymList.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symlist.html#SymList.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symlist.SymList.__init__" title="Link to this definition">#</a></dt>
+<dd><p>initialize list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.symlist.SymList.simplify">
+<span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'factor'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symlist.html#SymList.simplify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symlist.SymList.simplify" title="Link to this definition">#</a></dt>
+<dd><p>simplify list values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>type</strong> (<em>str</em><em>, </em><em>optional</em>) -- type of simplification, <code class="docutils literal notranslate"><span class="pre">factor/expand/cancel/simplify</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.binary_manager">Binary data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager"><code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager.__init__"><code class="docutils literal notranslate"><span class="pre">BinaryManager.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager.load"><code class="docutils literal notranslate"><span class="pre">BinaryManager.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.pdf_via_latex">PDF via LaTeX</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.__init__"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.equation"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.equation()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.figure"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.figure()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.simple_table"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.simple_table()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.table"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.table()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.text"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.text()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.title"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.title()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.symdict">Calculatable dictionary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict"><code class="docutils literal notranslate"><span class="pre">SymDict</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.__init__"><code class="docutils literal notranslate"><span class="pre">SymDict.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.remove_zero"><code class="docutils literal notranslate"><span class="pre">SymDict.remove_zero()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.simplify"><code class="docutils literal notranslate"><span class="pre">SymDict.simplify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.symlist">Calculatable list</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList"><code class="docutils literal notranslate"><span class="pre">SymList</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList.__init__"><code class="docutils literal notranslate"><span class="pre">SymList.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList.simplify"><code class="docutils literal notranslate"><span class="pre">SymList.simplify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

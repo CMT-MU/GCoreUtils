@@ -1,0 +1,1766 @@
+
+<!DOCTYPE html>
+
+
+<html lang="jp" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Container &#8212; GCoreUtils</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=8cf54648"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/array';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Linear Algebra" href="la.html" />
+    <link rel="prev" title="GCoreUtils" href="../README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="jp"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GCoreUtils</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="la.html">Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">General Utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">Misc.</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Change Log</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Logs (not in tags)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/CMT-MU/GCoreUtils.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Container</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.nsarray">NSArray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray"><code class="docutils literal notranslate"><span class="pre">NSArray</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.style"><code class="docutils literal notranslate"><span class="pre">NSArray.style</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.var"><code class="docutils literal notranslate"><span class="pre">NSArray.var</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.lst"><code class="docutils literal notranslate"><span class="pre">NSArray.lst</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.fmt"><code class="docutils literal notranslate"><span class="pre">NSArray.fmt</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.is_real"><code class="docutils literal notranslate"><span class="pre">NSArray.is_real</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.apply"><code class="docutils literal notranslate"><span class="pre">NSArray.apply()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.cancel"><code class="docutils literal notranslate"><span class="pre">NSArray.cancel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.clip"><code class="docutils literal notranslate"><span class="pre">NSArray.clip()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.concat"><code class="docutils literal notranslate"><span class="pre">NSArray.concat()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.convert_bond"><code class="docutils literal notranslate"><span class="pre">NSArray.convert_bond()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.create_bond_from_pair"><code class="docutils literal notranslate"><span class="pre">NSArray.create_bond_from_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.det"><code class="docutils literal notranslate"><span class="pre">NSArray.det()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.diagonalize_hermite"><code class="docutils literal notranslate"><span class="pre">NSArray.diagonalize_hermite()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.distance"><code class="docutils literal notranslate"><span class="pre">NSArray.distance()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.dot"><code class="docutils literal notranslate"><span class="pre">NSArray.dot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.evalf"><code class="docutils literal notranslate"><span class="pre">NSArray.evalf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.expand"><code class="docutils literal notranslate"><span class="pre">NSArray.expand()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.factor"><code class="docutils literal notranslate"><span class="pre">NSArray.factor()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.from_str"><code class="docutils literal notranslate"><span class="pre">NSArray.from_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.grid"><code class="docutils literal notranslate"><span class="pre">NSArray.grid()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.grid_path"><code class="docutils literal notranslate"><span class="pre">NSArray.grid_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.igrid"><code class="docutils literal notranslate"><span class="pre">NSArray.igrid()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.im"><code class="docutils literal notranslate"><span class="pre">NSArray.im()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.index"><code class="docutils literal notranslate"><span class="pre">NSArray.index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.inverse"><code class="docutils literal notranslate"><span class="pre">NSArray.inverse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.is_empty"><code class="docutils literal notranslate"><span class="pre">NSArray.is_empty</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.lambdify"><code class="docutils literal notranslate"><span class="pre">NSArray.lambdify()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.latex"><code class="docutils literal notranslate"><span class="pre">NSArray.latex()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.norm"><code class="docutils literal notranslate"><span class="pre">NSArray.norm()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.normalize"><code class="docutils literal notranslate"><span class="pre">NSArray.normalize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.numpy"><code class="docutils literal notranslate"><span class="pre">NSArray.numpy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.orthogonalize"><code class="docutils literal notranslate"><span class="pre">NSArray.orthogonalize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.radsimp"><code class="docutils literal notranslate"><span class="pre">NSArray.radsimp()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.re"><code class="docutils literal notranslate"><span class="pre">NSArray.re()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.regular_direction"><code class="docutils literal notranslate"><span class="pre">NSArray.regular_direction()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.remove"><code class="docutils literal notranslate"><span class="pre">NSArray.remove()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.remove_duplicate"><code class="docutils literal notranslate"><span class="pre">NSArray.remove_duplicate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.reverse_direction"><code class="docutils literal notranslate"><span class="pre">NSArray.reverse_direction()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.semi_evalf"><code class="docutils literal notranslate"><span class="pre">NSArray.semi_evalf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.shape"><code class="docutils literal notranslate"><span class="pre">NSArray.shape</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.shift"><code class="docutils literal notranslate"><span class="pre">NSArray.shift()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.simplify"><code class="docutils literal notranslate"><span class="pre">NSArray.simplify()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.sort"><code class="docutils literal notranslate"><span class="pre">NSArray.sort()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.str"><code class="docutils literal notranslate"><span class="pre">NSArray.str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.subs"><code class="docutils literal notranslate"><span class="pre">NSArray.subs()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.sum"><code class="docutils literal notranslate"><span class="pre">NSArray.sum()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.sympy"><code class="docutils literal notranslate"><span class="pre">NSArray.sympy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.transform"><code class="docutils literal notranslate"><span class="pre">NSArray.transform()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.value"><code class="docutils literal notranslate"><span class="pre">NSArray.value()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.variable"><code class="docutils literal notranslate"><span class="pre">NSArray.variable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.vector3d"><code class="docutils literal notranslate"><span class="pre">NSArray.vector3d()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.zeros"><code class="docutils literal notranslate"><span class="pre">NSArray.zeros()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.dataset">DataSet</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet"><code class="docutils literal notranslate"><span class="pre">DataSet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.self"><code class="docutils literal notranslate"><span class="pre">DataSet.self</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.__init__"><code class="docutils literal notranslate"><span class="pre">DataSet.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.append"><code class="docutils literal notranslate"><span class="pre">DataSet.append()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.extract"><code class="docutils literal notranslate"><span class="pre">DataSet.extract()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.header"><code class="docutils literal notranslate"><span class="pre">DataSet.header</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.indexed"><code class="docutils literal notranslate"><span class="pre">DataSet.indexed()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.load_csv"><code class="docutils literal notranslate"><span class="pre">DataSet.load_csv()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.remove"><code class="docutils literal notranslate"><span class="pre">DataSet.remove()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.role"><code class="docutils literal notranslate"><span class="pre">DataSet.role</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.save_csv"><code class="docutils literal notranslate"><span class="pre">DataSet.save_csv()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.set_header"><code class="docutils literal notranslate"><span class="pre">DataSet.set_header()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.set_role"><code class="docutils literal notranslate"><span class="pre">DataSet.set_role()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.to_data"><code class="docutils literal notranslate"><span class="pre">DataSet.to_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-container">
+<h1>Data Container<a class="headerlink" href="#data-container" title="Link to this heading">#</a></h1>
+<p>array and data container</p>
+<section id="module-gcoreutils.nsarray">
+<span id="nsarray"></span><h2>NSArray<a class="headerlink" href="#module-gcoreutils.nsarray" title="Link to this heading">#</a></h2>
+<p>This class manages sympy-numpy combined array.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NSArray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sympy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+<p>sympy-numpy combined array.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.style">
+<span class="sig-name descname"><span class="pre">style</span></span><a class="headerlink" href="#gcoreutils.nsarray.NSArray.style" title="Link to this definition">#</a></dt>
+<dd><p>scalar/vector/matrix/bond/bond_th/bond_sv.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.var">
+<span class="sig-name descname"><span class="pre">var</span></span><a class="headerlink" href="#gcoreutils.nsarray.NSArray.var" title="Link to this definition">#</a></dt>
+<dd><p>dict of variables { str: sympy }.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.lst">
+<span class="sig-name descname"><span class="pre">lst</span></span><a class="headerlink" href="#gcoreutils.nsarray.NSArray.lst" title="Link to this definition">#</a></dt>
+<dd><p>a set of values ?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.fmt">
+<span class="sig-name descname"><span class="pre">fmt</span></span><a class="headerlink" href="#gcoreutils.nsarray.NSArray.fmt" title="Link to this definition">#</a></dt>
+<dd><p>sympy/value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.is_real">
+<span class="sig-name descname"><span class="pre">is_real</span></span><a class="headerlink" href="#gcoreutils.nsarray.NSArray.is_real" title="Link to this definition">#</a></dt>
+<dd><p>real array ?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="simple">
+<dt>Notes: string / internal</dt><dd><ul class="simple">
+<li><p>scalar : s, {s}, {{s}}, ... / s, [s], [[s]], ...</p></li>
+<li><p>vector : v = [s], {v} / [s], [[s]].</p></li>
+<li><p>matrix : m = [[s]], {m} / [[s]], [[[s]]].</p></li>
+<li><p>bond : b = vector,center/&quot;<a class="reference external" href="mailto:vector&#37;&#52;&#48;center">vector<span>&#64;</span>center</a>&quot;, {b} / [[s],[s]], [[[s],[s]]].</p></li>
+<li><p>bond_th : b = tail,head/&quot;tail;head&quot;, {b} / [[s],[s]], [[[s],[s]]].</p></li>
+<li><p>bond_sv : b = start,vector/&quot;start:vector&quot;, {b} / [[s],[s]], [[[s],[s]]].</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.apply" title="Link to this definition">#</a></dt>
+<dd><p>apply matrices to single vector/matrix/bond as A.v.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a>) -- array to be applied.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>applied vector/matrix/bond.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>if dim(self)=dim(v/m/b)+1, affine transformation is performed.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.cancel">
+<span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.cancel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.cancel" title="Link to this definition">#</a></dt>
+<dd><p>cancel array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>canceled array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.clip">
+<span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.clip" title="Link to this definition">#</a></dt>
+<dd><p>clipping indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r1</strong> (<em>list</em>) -- lower bound in each dimension.</p></li>
+<li><p><strong>r2</strong> (<em>list</em>) -- upper bound in each dimension.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>clipping indices.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.concat">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrays</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.concat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.concat" title="Link to this definition">#</a></dt>
+<dd><p>concatenate arrays.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arrays</strong> (<em>list</em>) -- list of NSArray.</p></li>
+<li><p><strong>real</strong> (<em>bool</em><em>, </em><em>optional</em>) -- real array ?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>concatenated array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.convert_bond">
+<span class="sig-name descname"><span class="pre">convert_bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.convert_bond"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.convert_bond" title="Link to this definition">#</a></dt>
+<dd><p>convert bond to given style.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>style</strong> (<em>str</em>) -- style to convert, &quot;bond/bond_th/bond_sv&quot;.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>b1 (vector, tail, start).
+- NSArray: b2 (center, head, vector).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>NSArray</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.create_bond_from_pair">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_bond_from_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.create_bond_from_pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.create_bond_from_pair" title="Link to this definition">#</a></dt>
+<dd><p>create bond with given style from a pair, (b1, b2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>b1</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a>) -- first vectors.</p></li>
+<li><p><strong>b2</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a>) -- second vectors.</p></li>
+<li><p><strong>style</strong> (<em>str</em>) -- style, &quot;bond/bond_th/bond_sv&quot;.</p></li>
+<li><p><strong>real</strong> (<em>bool</em>) -- real variable ?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bond array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.det">
+<span class="sig-name descname"><span class="pre">det</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.det"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.det" title="Link to this definition">#</a></dt>
+<dd><p>determinant of matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>determinant of matrix.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.diagonalize_hermite">
+<span class="sig-name descname"><span class="pre">diagonalize_hermite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eigenvector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.diagonalize_hermite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.diagonalize_hermite" title="Link to this definition">#</a></dt>
+<dd><p>diagonalize hermitian matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>list</em><em>, </em><em>np.array</em><em>, </em><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a><em>, </em><em>optional</em>) -- parameter set in each row (None = numerical data).</p></li>
+<li><p><strong>eigenvector</strong> (<em>bool</em><em>, </em><em>optional</em>) -- compute eigen vector ?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>used function.
+- NSArray: eigen values (vectors).
+- NSArray: eigen vectors (matrices) eigen vecotr in each column (optional).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>function</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.distance">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accuracy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.distance" title="Link to this definition">#</a></dt>
+<dd><p>group of sites with the same distance (in increasing order).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s1</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a>) -- vector array.</p></li>
+<li><p><strong>s2</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a>) -- vector array.</p></li>
+<li><p><strong>G</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a><em>, </em><em>optional</em>) -- metric matrix (None = unit matrix).</p></li>
+<li><p><strong>accuracy</strong> (<em>int</em><em>, </em><em>optional</em>) -- accuracy of digit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>i, j are indices of positions (i&lt;=j only for s1=s2), { distance(float): [(i(int),j(int))] }.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.dot">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.dot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.dot" title="Link to this definition">#</a></dt>
+<dd><p>inner product s1.s2 or Tr(s1^dagger.s2) or sum(s1*s2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s1</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a>) -- array 1.</p></li>
+<li><p><strong>s2</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a>) -- array 2.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>inner product.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>sympy or float or complex</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.evalf">
+<span class="sig-name descname"><span class="pre">evalf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.evalf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.evalf" title="Link to this definition">#</a></dt>
+<dd><p>evaluate floating number array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>evaluated array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.expand">
+<span class="sig-name descname"><span class="pre">expand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.expand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.expand" title="Link to this definition">#</a></dt>
+<dd><p>expand array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>expanded array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.factor">
+<span class="sig-name descname"><span class="pre">factor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.factor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.factor" title="Link to this definition">#</a></dt>
+<dd><p>factor array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>factored array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.from_str">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sympy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.from_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.from_str" title="Link to this definition">#</a></dt>
+<dd><p>create array from list of string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s_lst</strong> (<em>[</em><em>str</em><em>]</em>) -- list of string.</p></li>
+<li><p><strong>fmt</strong> (<em>str</em><em>, </em><em>optional</em>) -- sympy/value.</p></li>
+<li><p><strong>real</strong> (<em>bool</em><em>, </em><em>optional</em>) -- real array ?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.grid">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.grid" title="Link to this definition">#</a></dt>
+<dd><p>create grid points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grid_min</strong> (<em>list</em>) -- lower bounds in each direction.</p></li>
+<li><p><strong>grid_max</strong> (<em>list</em>) -- upper bounds in each direction.</p></li>
+<li><p><strong>grid_n</strong> (<em>list</em>) -- number of points in each direction.</p></li>
+<li><p><strong>endpoint</strong> (<em>bool</em><em>, </em><em>optional</em>) -- include end point ?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>grid points.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>grid point: increase of indices from left to right.</p></li>
+<li><p>x[i] = (max-min)*i/n for endpoint is False, otherwise (max-min)*i/(n-1).</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.grid_path">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grid_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gpath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.grid_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.grid_path" title="Link to this definition">#</a></dt>
+<dd><p>grid points along path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pts</strong> (<em>dict</em>) -- definitions of points, e.g., {&quot;A&quot;:[1,2,3],&quot;B&quot;:[3,4,5]}.</p></li>
+<li><p><strong>gpath</strong> (<em>str</em>) -- path, e.g., &quot;A-B|C-D-E&quot;.</p></li>
+<li><p><strong>N1</strong> (<em>int</em><em>, </em><em>optional</em>) -- number of divisions.</p></li>
+<li><p><strong>A</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a><em>, </em><em>optional</em>) -- conversion matrix.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>grid points.
+- NSArray: linear positions.
+- dict: {disconnected linear position:label}.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>NSArray</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.igrid">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">igrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.igrid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.igrid" title="Link to this definition">#</a></dt>
+<dd><p>create integer grid points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>N</strong> (<em>list</em>) -- number of points in each direction.</p></li>
+<li><p><strong>offset</strong> (<em>tuple</em><em>, </em><em>optional</em>) -- offset in each direction. 0 is used for None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>grid points.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>grid point: increase of indices from left to right.</p></li>
+<li><p>x[i] = offset + i.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.im">
+<span class="sig-name descname"><span class="pre">im</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.im"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.im" title="Link to this definition">#</a></dt>
+<dd><p>imaginary part of array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>imaginary part of array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.index">
+<span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.index" title="Link to this definition">#</a></dt>
+<dd><p>find index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>str</em><em> or </em><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a>) -- element to find (single value).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>index or indices for scalar.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or tuple</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>if s is not in elements, return None.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.inverse">
+<span class="sig-name descname"><span class="pre">inverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.inverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.inverse" title="Link to this definition">#</a></dt>
+<dd><p>inverse of matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>inverse of matrix.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.is_empty">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_empty</span></span><a class="headerlink" href="#gcoreutils.nsarray.NSArray.is_empty" title="Link to this definition">#</a></dt>
+<dd><p>empty array ?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>empty array ?</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.lambdify">
+<span class="sig-name descname"><span class="pre">lambdify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.lambdify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.lambdify" title="Link to this definition">#</a></dt>
+<dd><p>lambda function of array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>function that takes (a list of) params as argument.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>function</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>returned function takes (a list of) params, ndarray and NSArray.</p></li>
+<li><p>doc can be viewed by f.__doc__.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.latex">
+<span class="sig-name descname"><span class="pre">latex</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.latex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.latex" title="Link to this definition">#</a></dt>
+<dd><p>convert to latex array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>latex list.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list or str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.norm">
+<span class="sig-name descname"><span class="pre">norm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.norm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.norm" title="Link to this definition">#</a></dt>
+<dd><p>norm of array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>norm of array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>for bond, return bond lengths, and for scalar, return absolute values.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ret_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.normalize" title="Link to this definition">#</a></dt>
+<dd><p>normalize matrix and its normalization const.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ret_norm</strong> (<em>bool</em><em>, </em><em>optional</em>) -- return norm ?</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>normalized matrix.
+- NSArray: normalization const. (optional).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>NSArray</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>original matrix = normalization const. * normalized matrix.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.numpy">
+<span class="sig-name descname"><span class="pre">numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.numpy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.numpy" title="Link to this definition">#</a></dt>
+<dd><p>convert to conventional numpy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.orthogonalize">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">orthogonalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.orthogonalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.orthogonalize" title="Link to this definition">#</a></dt>
+<dd><p>orthogonalize vector/matrix by Gram-Schmidt orthogonalization method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a>) -- vector/matrix array to be orthogonalized.</p></li>
+<li><p><strong>nmax</strong> (<em>int</em><em>, </em><em>optional</em>) -- max. number of nonzero basis.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>orthogonalized vector/matrix array.
+- ndarray: nonzero vector/matrix indexes.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>NSArray</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.radsimp">
+<span class="sig-name descname"><span class="pre">radsimp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.radsimp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.radsimp" title="Link to this definition">#</a></dt>
+<dd><p>radsimp array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>radsimped array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.re">
+<span class="sig-name descname"><span class="pre">re</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.re"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.re" title="Link to this definition">#</a></dt>
+<dd><p>real part of array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>real part of array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.regular_direction">
+<span class="sig-name descname"><span class="pre">regular_direction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.regular_direction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.regular_direction" title="Link to this definition">#</a></dt>
+<dd><p>convert bond direction so that lower component in vector is positive.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>converted array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.remove" title="Link to this definition">#</a></dt>
+<dd><p>remove given indexed and associated info.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>idx</strong> (<em>ndarray</em><em>, </em><em>optional</em>) -- indices to remove (None = remove nul).</p></li>
+<li><p><strong>info</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a><em>, </em><em>optional</em>) -- associated info.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Returns: tuple</dt><dd><ul class="simple">
+<li><p>NSArray: removed array.</p></li>
+<li><p>NSArray: removed array for info. (optional).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.remove_duplicate">
+<span class="sig-name descname"><span class="pre">remove_duplicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.remove_duplicate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.remove_duplicate" title="Link to this definition">#</a></dt>
+<dd><p>remove duplicate elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sort</strong> (<em>bool</em><em>, </em><em>optional</em>) -- sort ?</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>removed array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>for scalar, convert to 1d array.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.reverse_direction">
+<span class="sig-name descname"><span class="pre">reverse_direction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.reverse_direction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.reverse_direction" title="Link to this definition">#</a></dt>
+<dd><p>reverse bond direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>reversed array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.semi_evalf">
+<span class="sig-name descname"><span class="pre">semi_evalf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">denom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">49</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.semi_evalf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.semi_evalf" title="Link to this definition">#</a></dt>
+<dd><p>evaluate complex fractional into floating number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>denom</strong> (<em>int</em><em>, </em><em>optional</em>) -- denominator more than which evalf is performed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>evaluated array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.shape">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#gcoreutils.nsarray.NSArray.shape" title="Link to this definition">#</a></dt>
+<dd><p>shape of scalar or shape of vector, matrix, and bond in list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>shape of scalar/vector/matrix/bond.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.shift">
+<span class="sig-name descname"><span class="pre">shift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.shift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.shift" title="Link to this definition">#</a></dt>
+<dd><p>shift elements within range [0,1).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>with_shift</strong> (<em>bool</em>) -- return shift ?</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>shifted array.
+or
+- NSArray: shift, i.e., orginal = shifted + shift.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>NSArray</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.simplify">
+<span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.simplify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.simplify" title="Link to this definition">#</a></dt>
+<dd><p>simplify array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>simplified array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.sort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.sort" title="Link to this definition">#</a></dt>
+<dd><p>sort array (in ascending order).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reverse</strong> (<em>bool</em>) -- reverse sort ?</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>sorted array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.str">
+<span class="sig-name descname"><span class="pre">str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.str" title="Link to this definition">#</a></dt>
+<dd><p>convert to string array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string list.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list or str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.subs">
+<span class="sig-name descname"><span class="pre">subs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.subs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.subs" title="Link to this definition">#</a></dt>
+<dd><p>substitute variables in terms of dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>subs</strong> (<em>dict</em>) -- dict for substitution.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>substituted array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.sum">
+<span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.sum" title="Link to this definition">#</a></dt>
+<dd><p>sum of array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>summed array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.sympy">
+<span class="sig-name descname"><span class="pre">sympy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.sympy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.sympy" title="Link to this definition">#</a></dt>
+<dd><p>convert to sympy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>real</strong> (<em>bool</em><em>, </em><em>optional</em>) -- real array ?</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>sympy array.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ai</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.transform" title="Link to this definition">#</a></dt>
+<dd><p>transform vector/matrix/bond as A.v or A.m.A^{-1}.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a>) -- transform matrix.</p></li>
+<li><p><strong>Ai</strong> (<a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray"><em>NSArray</em></a><em>, </em><em>optional</em>) -- inverse of A.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transformed vector/matrix/bond.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>if dim(A)=dim(v/m/b)+1, affine transformation is performed.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.value" title="Link to this definition">#</a></dt>
+<dd><p>convert to value array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>value array.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.variable">
+<span class="sig-name descname"><span class="pre">variable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.variable" title="Link to this definition">#</a></dt>
+<dd><p>used variables in array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of variables (str).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.vector3d">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vector3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">head</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Q'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.vector3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.vector3d" title="Link to this definition">#</a></dt>
+<dd><p>3d vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>head</strong> (<em>str</em><em>, </em><em>optional</em>) -- type of vector, Q/G/T/M.</p></li>
+<li><p><strong>pre</strong> (<em>str</em><em>, </em><em>optional</em>) -- head of symbol.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>3d vector.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#gcoreutils.nsarray.NSArray" title="gcoreutils.nsarray.NSArray">NSArray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.nsarray.NSArray.zeros">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zeros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sympy'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/nsarray.html#NSArray.zeros"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.nsarray.NSArray.zeros" title="Link to this definition">#</a></dt>
+<dd><p>create zero array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<em>int</em><em> or </em><em>tuple</em>) -- shape of array.</p></li>
+<li><p><strong>style</strong> (<em>str</em>) -- scalar/vector/matrix.</p></li>
+<li><p><strong>fmt</strong> (<em>str</em><em>, </em><em>optional</em>) -- sympy/value.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-gcoreutils.dataset">
+<span id="dataset"></span><h2>DataSet<a class="headerlink" href="#module-gcoreutils.dataset" title="Link to this heading">#</a></h2>
+<p>This class manages a set of data frames.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>class to manage data frames.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.self">
+<span class="sig-name descname"><span class="pre">self</span></span><a class="headerlink" href="#gcoreutils.dataset.DataSet.self" title="Link to this definition">#</a></dt>
+<dd><p>{ name: [pd.DataFrame] }</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet.__init__" title="Link to this definition">#</a></dt>
+<dd><p>initialize the class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em><em>, </em><em>optional</em>) -- { name: ( [column], [role], [[value]] ) }</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>value can be omitted.</p></li>
+<li><p>if [role] is None, None is used, while if [role] is str, str is used for all columns.</p></li>
+<li><p>if [[value]] is None, empty data frame is created.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet.append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet.append" title="Link to this definition">#</a></dt>
+<dd><p>append row to specified data frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- name of data frame</p></li>
+<li><p><strong>row</strong> (<em>list</em>) -- list of values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> -- raised when size of row is different from columns.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.extract">
+<span class="sig-name descname"><span class="pre">extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet.extract"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet.extract" title="Link to this definition">#</a></dt>
+<dd><p>extract rows that match the given condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- name of data frame</p></li>
+<li><p><strong>cond</strong> (<em>str</em>) -- query condition</p></li>
+<li><p><strong>index</strong> (<em>bool</em><em>, </em><em>optional</em>) -- return indices if True, otherwise return extracted data frame</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of indices if index is True, otherwise extracted data frame (reindexed).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.header">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">header</span></span><a class="headerlink" href="#gcoreutils.dataset.DataSet.header" title="Link to this definition">#</a></dt>
+<dd><p>header of data frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{ name: [header] }</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.indexed">
+<span class="sig-name descname"><span class="pre">indexed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet.indexed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet.indexed" title="Link to this definition">#</a></dt>
+<dd><p>indexed and sorted by indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- name of data frame</p></li>
+<li><p><strong>index</strong> (<em>str</em><em> or </em><em>list</em>) -- index or indices</p></li>
+<li><p><strong>sort</strong> (<em>bool</em><em>, </em><em>optional</em>) -- sort by indices if True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>indexed (and sorted) data frame.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.load_csv">
+<span class="sig-name descname"><span class="pre">load_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">role</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet.load_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet.load_csv" title="Link to this definition">#</a></dt>
+<dd><p>load CSV into named data frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- name of data frame</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) -- file name of CSV (first line is used as column header)</p></li>
+<li><p><strong>role</strong> (<em>list</em><em> or </em><em>str</em><em>, </em><em>optional</em>) -- list of roles. if None or str, None or str is used for all columns</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> -- raised when sizes of read columns and role are different.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet.remove" title="Link to this definition">#</a></dt>
+<dd><p>remove rows that match the given condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- name of data frame</p></li>
+<li><p><strong>cond</strong> (<em>str</em>) -- query condition</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) -- remove inplace if True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>removed data frame (reindexed) if inplace is False, otherwise remove rows inplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.role">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">role</span></span><a class="headerlink" href="#gcoreutils.dataset.DataSet.role" title="Link to this definition">#</a></dt>
+<dd><p>role of data frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{ name: [role] }</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.save_csv">
+<span class="sig-name descname"><span class="pre">save_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">head</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet.save_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet.save_csv" title="Link to this definition">#</a></dt>
+<dd><p>save CSV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>head</strong> (<em>str</em>) -- head of filename</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) -- name of data frame. if None, save all data frames separately with &quot;_name&quot;</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>role is lost.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.set_header">
+<span class="sig-name descname"><span class="pre">set_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet.set_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet.set_header" title="Link to this definition">#</a></dt>
+<dd><p>set header of data frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- name of data frame</p></li>
+<li><p><strong>col</strong> (<em>list</em><em> or </em><em>str</em>) -- list of column's names</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.set_role">
+<span class="sig-name descname"><span class="pre">set_role</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">role</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet.set_role"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet.set_role" title="Link to this definition">#</a></dt>
+<dd><p>set role of data frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- name of data frame</p></li>
+<li><p><strong>role</strong> (<em>list</em><em> or </em><em>str</em>) -- list of roles. if None or str, None or str is used for all columns</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> -- raised when name cannot be found or sizes of columns and role are different.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gcoreutils.dataset.DataSet.to_data">
+<span class="sig-name descname"><span class="pre">to_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/dataset.html#DataSet.to_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.dataset.DataSet.to_data" title="Link to this definition">#</a></dt>
+<dd><p>convert to raw data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>raw data. { name: ( [column], [role], [[value]] ) }</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>returned dictionary can be used to create dataset as DataSet(data).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.nsarray">NSArray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray"><code class="docutils literal notranslate"><span class="pre">NSArray</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.style"><code class="docutils literal notranslate"><span class="pre">NSArray.style</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.var"><code class="docutils literal notranslate"><span class="pre">NSArray.var</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.lst"><code class="docutils literal notranslate"><span class="pre">NSArray.lst</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.fmt"><code class="docutils literal notranslate"><span class="pre">NSArray.fmt</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.is_real"><code class="docutils literal notranslate"><span class="pre">NSArray.is_real</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.apply"><code class="docutils literal notranslate"><span class="pre">NSArray.apply()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.cancel"><code class="docutils literal notranslate"><span class="pre">NSArray.cancel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.clip"><code class="docutils literal notranslate"><span class="pre">NSArray.clip()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.concat"><code class="docutils literal notranslate"><span class="pre">NSArray.concat()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.convert_bond"><code class="docutils literal notranslate"><span class="pre">NSArray.convert_bond()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.create_bond_from_pair"><code class="docutils literal notranslate"><span class="pre">NSArray.create_bond_from_pair()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.det"><code class="docutils literal notranslate"><span class="pre">NSArray.det()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.diagonalize_hermite"><code class="docutils literal notranslate"><span class="pre">NSArray.diagonalize_hermite()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.distance"><code class="docutils literal notranslate"><span class="pre">NSArray.distance()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.dot"><code class="docutils literal notranslate"><span class="pre">NSArray.dot()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.evalf"><code class="docutils literal notranslate"><span class="pre">NSArray.evalf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.expand"><code class="docutils literal notranslate"><span class="pre">NSArray.expand()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.factor"><code class="docutils literal notranslate"><span class="pre">NSArray.factor()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.from_str"><code class="docutils literal notranslate"><span class="pre">NSArray.from_str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.grid"><code class="docutils literal notranslate"><span class="pre">NSArray.grid()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.grid_path"><code class="docutils literal notranslate"><span class="pre">NSArray.grid_path()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.igrid"><code class="docutils literal notranslate"><span class="pre">NSArray.igrid()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.im"><code class="docutils literal notranslate"><span class="pre">NSArray.im()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.index"><code class="docutils literal notranslate"><span class="pre">NSArray.index()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.inverse"><code class="docutils literal notranslate"><span class="pre">NSArray.inverse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.is_empty"><code class="docutils literal notranslate"><span class="pre">NSArray.is_empty</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.lambdify"><code class="docutils literal notranslate"><span class="pre">NSArray.lambdify()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.latex"><code class="docutils literal notranslate"><span class="pre">NSArray.latex()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.norm"><code class="docutils literal notranslate"><span class="pre">NSArray.norm()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.normalize"><code class="docutils literal notranslate"><span class="pre">NSArray.normalize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.numpy"><code class="docutils literal notranslate"><span class="pre">NSArray.numpy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.orthogonalize"><code class="docutils literal notranslate"><span class="pre">NSArray.orthogonalize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.radsimp"><code class="docutils literal notranslate"><span class="pre">NSArray.radsimp()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.re"><code class="docutils literal notranslate"><span class="pre">NSArray.re()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.regular_direction"><code class="docutils literal notranslate"><span class="pre">NSArray.regular_direction()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.remove"><code class="docutils literal notranslate"><span class="pre">NSArray.remove()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.remove_duplicate"><code class="docutils literal notranslate"><span class="pre">NSArray.remove_duplicate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.reverse_direction"><code class="docutils literal notranslate"><span class="pre">NSArray.reverse_direction()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.semi_evalf"><code class="docutils literal notranslate"><span class="pre">NSArray.semi_evalf()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.shape"><code class="docutils literal notranslate"><span class="pre">NSArray.shape</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.shift"><code class="docutils literal notranslate"><span class="pre">NSArray.shift()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.simplify"><code class="docutils literal notranslate"><span class="pre">NSArray.simplify()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.sort"><code class="docutils literal notranslate"><span class="pre">NSArray.sort()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.str"><code class="docutils literal notranslate"><span class="pre">NSArray.str()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.subs"><code class="docutils literal notranslate"><span class="pre">NSArray.subs()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.sum"><code class="docutils literal notranslate"><span class="pre">NSArray.sum()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.sympy"><code class="docutils literal notranslate"><span class="pre">NSArray.sympy()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.transform"><code class="docutils literal notranslate"><span class="pre">NSArray.transform()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.value"><code class="docutils literal notranslate"><span class="pre">NSArray.value()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.variable"><code class="docutils literal notranslate"><span class="pre">NSArray.variable()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.vector3d"><code class="docutils literal notranslate"><span class="pre">NSArray.vector3d()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.nsarray.NSArray.zeros"><code class="docutils literal notranslate"><span class="pre">NSArray.zeros()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.dataset">DataSet</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet"><code class="docutils literal notranslate"><span class="pre">DataSet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.self"><code class="docutils literal notranslate"><span class="pre">DataSet.self</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.__init__"><code class="docutils literal notranslate"><span class="pre">DataSet.__init__()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.append"><code class="docutils literal notranslate"><span class="pre">DataSet.append()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.extract"><code class="docutils literal notranslate"><span class="pre">DataSet.extract()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.header"><code class="docutils literal notranslate"><span class="pre">DataSet.header</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.indexed"><code class="docutils literal notranslate"><span class="pre">DataSet.indexed()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.load_csv"><code class="docutils literal notranslate"><span class="pre">DataSet.load_csv()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.remove"><code class="docutils literal notranslate"><span class="pre">DataSet.remove()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.role"><code class="docutils literal notranslate"><span class="pre">DataSet.role</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.save_csv"><code class="docutils literal notranslate"><span class="pre">DataSet.save_csv()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.set_header"><code class="docutils literal notranslate"><span class="pre">DataSet.set_header()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.set_role"><code class="docutils literal notranslate"><span class="pre">DataSet.set_role()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.dataset.DataSet.to_data"><code class="docutils literal notranslate"><span class="pre">DataSet.to_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

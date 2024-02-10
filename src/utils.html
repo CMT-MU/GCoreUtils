@@ -1,0 +1,1110 @@
+
+<!DOCTYPE html>
+
+
+<html lang="jp" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>General Utility &#8212; GCoreUtils</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=8cf54648"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/utils';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Misc." href="misc.html" />
+    <link rel="prev" title="Linear Algebra" href="la.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="jp"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GCoreUtils</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="array.html">Data Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="la.html">Linear Algebra</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">General Utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">Misc.</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Change Log</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="change_log.html">Change Logs (not in tags)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/CMT-MU/GCoreUtils.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>General Utility</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.basic_util">Basic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.basic_util.apply"><code class="docutils literal notranslate"><span class="pre">apply()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.basic_util.get_variable"><code class="docutils literal notranslate"><span class="pre">get_variable()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.basic_util.set_variable"><code class="docutils literal notranslate"><span class="pre">set_variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.io_util">I/O</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.io_util.read_dict"><code class="docutils literal notranslate"><span class="pre">read_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.io_util.read_jsonc"><code class="docutils literal notranslate"><span class="pre">read_jsonc()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.io_util.write_dict"><code class="docutils literal notranslate"><span class="pre">write_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.io_util.write_jsonc"><code class="docutils literal notranslate"><span class="pre">write_jsonc()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.string_util">For string</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.circle_number"><code class="docutils literal notranslate"><span class="pre">circle_number()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.class_name"><code class="docutils literal notranslate"><span class="pre">class_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.convert_to_fraction"><code class="docutils literal notranslate"><span class="pre">convert_to_fraction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.remove_space"><code class="docutils literal notranslate"><span class="pre">remove_space()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.table_to_str"><code class="docutils literal notranslate"><span class="pre">table_to_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.wrap_string"><code class="docutils literal notranslate"><span class="pre">wrap_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.list_util">For list</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.list_util.flatten"><code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.list_util.list_to_table"><code class="docutils literal notranslate"><span class="pre">list_to_table()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.list_util.regularize_table"><code class="docutils literal notranslate"><span class="pre">regularize_table()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.crystal_util">For crystal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.crystal_util.cell_transform_matrix"><code class="docutils literal notranslate"><span class="pre">cell_transform_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.convert_util">Converter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.is_valid_sympy"><code class="docutils literal notranslate"><span class="pre">is_valid_sympy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.sympy_to_complex"><code class="docutils literal notranslate"><span class="pre">sympy_to_complex()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.sympy_to_float"><code class="docutils literal notranslate"><span class="pre">sympy_to_float()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.sympy_to_latex"><code class="docutils literal notranslate"><span class="pre">sympy_to_latex()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.sympy_to_mathematica"><code class="docutils literal notranslate"><span class="pre">sympy_to_mathematica()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.sympy_to_str"><code class="docutils literal notranslate"><span class="pre">sympy_to_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.text_to_list"><code class="docutils literal notranslate"><span class="pre">text_to_list()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.text_to_sympy"><code class="docutils literal notranslate"><span class="pre">text_to_sympy()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.latex_util">LaTeX</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.latex_util.check_latex_installed"><code class="docutils literal notranslate"><span class="pre">check_latex_installed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.latex_util.latex_setting"><code class="docutils literal notranslate"><span class="pre">latex_setting()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.latex_util.latex_version"><code class="docutils literal notranslate"><span class="pre">latex_version()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="general-utility">
+<h1>General Utility<a class="headerlink" href="#general-utility" title="Link to this heading">#</a></h1>
+<p>Utility functions and classes for general purpose</p>
+<section id="module-gcoreutils.basic_util">
+<span id="basic"></span><h2>Basic<a class="headerlink" href="#module-gcoreutils.basic_util" title="Link to this heading">#</a></h2>
+<p>basic utility.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.basic_util.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/basic_util.html#apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.basic_util.apply" title="Link to this definition">#</a></dt>
+<dd><p>apply function to (nested) list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>function</em>) -- function to apply to each element of list.</p></li>
+<li><p><strong>lst</strong> (<em>list</em><em> or </em><em>value</em>) -- (nested) list to apply.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>applied list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.basic_util.get_variable">
+<span class="sig-name descname"><span class="pre">get_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/basic_util.html#get_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.basic_util.get_variable" title="Link to this definition">#</a></dt>
+<dd><p>get variables from sympy expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lst</strong> (<em>list</em><em> or </em><em>sympy</em>) -- sympy expression (except for Matrix).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>set of variable strings (sorted).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.basic_util.set_variable">
+<span class="sig-name descname"><span class="pre">set_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/basic_util.html#set_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.basic_util.set_variable" title="Link to this definition">#</a></dt>
+<dd><p>set variable dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst</strong> (<em>list</em>) -- list of variable string.</p></li>
+<li><p><strong>real</strong> (<em>bool</em><em>, </em><em>optional</em>) -- real variable ?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>{ text: variable }.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gcoreutils.io_util">
+<span id="i-o"></span><h2>I/O<a class="headerlink" href="#module-gcoreutils.io_util" title="Link to this heading">#</a></h2>
+<p>utility for input and ouput.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.io_util.read_dict">
+<span class="sig-name descname"><span class="pre">read_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/io_util.html#read_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.io_util.read_dict" title="Link to this definition">#</a></dt>
+<dd><p>read dict text file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) -- file name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dictionary from dict text.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.io_util.read_jsonc">
+<span class="sig-name descname"><span class="pre">read_jsonc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/io_util.html#read_jsonc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.io_util.read_jsonc" title="Link to this definition">#</a></dt>
+<dd><p>read JSON(C) file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) -- file name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dictionary from JSON.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.io_util.write_dict">
+<span class="sig-name descname"><span class="pre">write_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/io_util.html#write_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.io_util.write_dict" title="Link to this definition">#</a></dt>
+<dd><p>write dict text file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) -- filename.</p></li>
+<li><p><strong>dic</strong> (<em>dict</em>) -- dictionary to write.</p></li>
+<li><p><strong>header</strong> (<em>str</em><em>, </em><em>optional</em>) -- header comment at the top of file.</p></li>
+<li><p><strong>var</strong> (<em>str</em><em>, </em><em>optional</em>) -- varialbe of dict.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.io_util.write_jsonc">
+<span class="sig-name descname"><span class="pre">write_jsonc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/io_util.html#write_jsonc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.io_util.write_jsonc" title="Link to this definition">#</a></dt>
+<dd><p>write JSON(C) file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) -- filename.</p></li>
+<li><p><strong>dic</strong> (<em>dict</em>) -- dictionary to write.</p></li>
+<li><p><strong>header</strong> (<em>str</em><em>, </em><em>optional</em>) -- header comment at the top of file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gcoreutils.string_util">
+<span id="for-string"></span><h2>For string<a class="headerlink" href="#module-gcoreutils.string_util" title="Link to this heading">#</a></h2>
+<p>utility for string.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.string_util.circle_number">
+<span class="sig-name descname"><span class="pre">circle_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/string_util.html#circle_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.string_util.circle_number" title="Link to this definition">#</a></dt>
+<dd><p>get a LaTeX code for a letter with circle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>c</strong> (<em>any</em>) -- letter (convertable to string)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>LaTeX code</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.string_util.class_name">
+<span class="sig-name descname"><span class="pre">class_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/string_util.html#class_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.string_util.class_name" title="Link to this definition">#</a></dt>
+<dd><p>get class name from type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>class name.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.string_util.convert_to_fraction">
+<span class="sig-name descname"><span class="pre">convert_to_fraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/string_util.html#convert_to_fraction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.string_util.convert_to_fraction" title="Link to this definition">#</a></dt>
+<dd><p>convert float number in string to fractional one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>str</em><em> or </em><em>[</em><em>str</em><em>]</em>) -- a (list of) string containing float expressions</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a (list of) converted string</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or [str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.string_util.remove_space">
+<span class="sig-name descname"><span class="pre">remove_space</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/string_util.html#remove_space"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.string_util.remove_space" title="Link to this definition">#</a></dt>
+<dd><p>remove space, tab, and newline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>str</em>) -- string</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>removed string</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.string_util.table_to_str">
+<span class="sig-name descname"><span class="pre">table_to_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tbl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">',</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/string_util.html#table_to_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.string_util.table_to_str" title="Link to this definition">#</a></dt>
+<dd><p>convert from table to string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tbl</strong> (<em>array-like</em>) -- table of strings</p></li>
+<li><p><strong>sep</strong> (<em>str</em><em>, </em><em>optional</em>) -- separator string</p></li>
+<li><p><strong>endl</strong> (<em>str</em><em>, </em><em>optional</em>) -- newline string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>string</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.string_util.wrap_string">
+<span class="sig-name descname"><span class="pre">wrap_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/string_util.html#wrap_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.string_util.wrap_string" title="Link to this definition">#</a></dt>
+<dd><p>wrap array elementwise with left and right strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>array-like</em>) -- array</p></li>
+<li><p><strong>left</strong> (<em>str</em><em>, </em><em>optional</em>) -- left string to wrap</p></li>
+<li><p><strong>right</strong> (<em>str</em><em>, </em><em>optional</em>) -- right string to wrap</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>wrapped array</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gcoreutils.list_util">
+<span id="for-list"></span><h2>For list<a class="headerlink" href="#module-gcoreutils.list_util" title="Link to this heading">#</a></h2>
+<p>utility for list.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.list_util.flatten">
+<span class="sig-name descname"><span class="pre">flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/list_util.html#flatten"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.list_util.flatten" title="Link to this definition">#</a></dt>
+<dd><p>flatten abitrary shape of list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lst</strong> (<em>Any</em>) -- list to flatten.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>flattened list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.list_util.list_to_table">
+<span class="sig-name descname"><span class="pre">list_to_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst1d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/list_util.html#list_to_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.list_util.list_to_table" title="Link to this definition">#</a></dt>
+<dd><p>convert from list to table</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst1d</strong> (<em>list</em>) -- 1d list</p></li>
+<li><p><strong>col</strong> (<em>int</em>) -- number of columns</p></li>
+<li><p><strong>p</strong> (<em>any</em><em>, </em><em>optional</em>) -- padding value (no padding for None)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>2d list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.list_util.regularize_table">
+<span class="sig-name descname"><span class="pre">regularize_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst2d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/list_util.html#regularize_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.list_util.regularize_table" title="Link to this definition">#</a></dt>
+<dd><p>regularize an irregular table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lst2d</strong> (<em>list</em>) -- 2d list with different number of columns</p></li>
+<li><p><strong>padding</strong> (<em>any</em><em>, </em><em>optional</em>) -- padding value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>regularized 2d list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-gcoreutils.crystal_util">
+<span id="for-crystal"></span><h2>For crystal<a class="headerlink" href="#module-gcoreutils.crystal_util" title="Link to this heading">#</a></h2>
+<p>utility for crystal.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.crystal_util.cell_transform_matrix">
+<span class="sig-name descname"><span class="pre">cell_transform_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crystal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/crystal_util.html#cell_transform_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.crystal_util.cell_transform_matrix" title="Link to this definition">#</a></dt>
+<dd><p>get cell transform matrix from lattice constants.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cell</strong> (<em>dict</em>) -- lattice parameters, a, b, c, alpha, beta, gamma, and origin.</p></li>
+<li><p><strong>crystal</strong> (<em>str</em><em>, </em><em>optional</em>) -- crystal, &quot;triclinic/monoclinic/orthorhombic/tetragonal/trigonal/hexagonal/cubic&quot;.</p></li>
+<li><p><strong>translation</strong> (<em>bool</em><em>, </em><em>optional</em>) -- if False, return 3x3 matrix.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Returns: tuple</dt><dd><ul class="simple">
+<li><p>cell (dict): a, b, c, alpha, beta, gamma (float).</p></li>
+<li><p>volume (float): volume.</p></li>
+<li><p>A (NSArray): 4x4 [3x3] matrix (each unit vector in each column, 4th column is zero).</p></li>
+<li><p>G (NSArray): 4x4 [3x3] metric matrix.</p></li>
+<li><p>A_norm (NSArray): list of normalized vectors.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>unit length or 90 degree are used when lattice constants are omitted.</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="module-gcoreutils.convert_util">
+<span id="converter"></span><h2>Converter<a class="headerlink" href="#module-gcoreutils.convert_util" title="Link to this heading">#</a></h2>
+<p>utility for conversion.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.convert_util.is_valid_sympy">
+<span class="sig-name descname"><span class="pre">is_valid_sympy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/convert_util.html#is_valid_sympy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.convert_util.is_valid_sympy" title="Link to this definition">#</a></dt>
+<dd><p>check whether text is valid as sympy expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) -- text to check.</p></li>
+<li><p><strong>check_var</strong> (<em>list</em><em>, </em><em>optional</em>) -- acceptable variable strings. if None is given, do not check.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>return True if valid.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.convert_util.sympy_to_complex">
+<span class="sig-name descname"><span class="pre">sympy_to_complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/convert_util.html#sympy_to_complex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.convert_util.sympy_to_complex" title="Link to this definition">#</a></dt>
+<dd><p>convert list to complex list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lst</strong> (<em>list</em><em> or </em><em>ndarray</em><em> or </em><em>sympy</em>) -- list to convert.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>converted list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or complex</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>if an element cannot be converted to complex, it becomes None.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.convert_util.sympy_to_float">
+<span class="sig-name descname"><span class="pre">sympy_to_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/convert_util.html#sympy_to_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.convert_util.sympy_to_float" title="Link to this definition">#</a></dt>
+<dd><p>convert list to float list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lst</strong> (<em>list</em><em> or </em><em>ndarray</em><em> or </em><em>sympy</em>) -- list to convert.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>converted list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or float</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>if an element cannot be converted to float, it becomes None.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.convert_util.sympy_to_latex">
+<span class="sig-name descname"><span class="pre">sympy_to_latex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/convert_util.html#sympy_to_latex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.convert_util.sympy_to_latex" title="Link to this definition">#</a></dt>
+<dd><p>convert list to latex list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lst</strong> (<em>list</em><em> or </em><em>ndarray</em><em> or </em><em>sympy</em>) -- list to convert.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>converted list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>if an element cannot be converted to complex, it becomes None.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.convert_util.sympy_to_mathematica">
+<span class="sig-name descname"><span class="pre">sympy_to_mathematica</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/convert_util.html#sympy_to_mathematica"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.convert_util.sympy_to_mathematica" title="Link to this definition">#</a></dt>
+<dd><p>convert sympy to Mathematica. (simple version)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lst</strong> (<em>list</em><em> or </em><em>ndarray</em><em> or </em><em>sympy</em>) -- list to convert.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>converted list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>if an element cannot be converted to complex, it becomes None.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.convert_util.sympy_to_str">
+<span class="sig-name descname"><span class="pre">sympy_to_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/convert_util.html#sympy_to_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.convert_util.sympy_to_str" title="Link to this definition">#</a></dt>
+<dd><p>convert list to str list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lst</strong> (<em>list</em><em> or </em><em>ndarray</em><em> or </em><em>sympy</em>) -- list to convert.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>converted list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>if an element cannot be converted to float, it becomes None.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.convert_util.text_to_list">
+<span class="sig-name descname"><span class="pre">text_to_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/convert_util.html#text_to_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.convert_util.text_to_list" title="Link to this definition">#</a></dt>
+<dd><p>convert single text to list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) -- text to convert.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>converted list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>if format error occurs, return None.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.convert_util.text_to_sympy">
+<span class="sig-name descname"><span class="pre">text_to_sympy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rational</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/convert_util.html#text_to_sympy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.convert_util.text_to_sympy" title="Link to this definition">#</a></dt>
+<dd><p>convert single text to sympy list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) -- text to convert.</p></li>
+<li><p><strong>local</strong> (<em>dict</em><em>, </em><em>optional</em>) -- variables to replace.</p></li>
+<li><p><strong>check_var</strong> (<em>set</em><em>, </em><em>optional</em>) -- set of variables to accept.</p></li>
+<li><p><strong>rational</strong> (<em>bool</em><em>, </em><em>optional</em>) -- replace floating number with rational one ?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>converted list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or sympy</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>if format error occurs, return None.</p></li>
+<li><p>if an element cannot be converted to sympy, it becomes None.</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="module-gcoreutils.latex_util">
+<span id="latex"></span><h2>LaTeX<a class="headerlink" href="#module-gcoreutils.latex_util" title="Link to this heading">#</a></h2>
+<p>utility for latex.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.latex_util.check_latex_installed">
+<span class="sig-name descname"><span class="pre">check_latex_installed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/latex_util.html#check_latex_installed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.latex_util.check_latex_installed" title="Link to this definition">#</a></dt>
+<dd><p>check if LaTeX is installed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if installed.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.latex_util.latex_setting">
+<span class="sig-name descname"><span class="pre">latex_setting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/latex_util.html#latex_setting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.latex_util.latex_setting" title="Link to this definition">#</a></dt>
+<dd><p>set LaTeX mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>str</em>) -- setting mode, &quot;standard/times/pgf&quot;.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gcoreutils.latex_util.latex_version">
+<span class="sig-name descname"><span class="pre">latex_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/latex_util.html#latex_version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.latex_util.latex_version" title="Link to this definition">#</a></dt>
+<dd><p>LaTeX version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>LaTeX version.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.basic_util">Basic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.basic_util.apply"><code class="docutils literal notranslate"><span class="pre">apply()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.basic_util.get_variable"><code class="docutils literal notranslate"><span class="pre">get_variable()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.basic_util.set_variable"><code class="docutils literal notranslate"><span class="pre">set_variable()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.io_util">I/O</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.io_util.read_dict"><code class="docutils literal notranslate"><span class="pre">read_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.io_util.read_jsonc"><code class="docutils literal notranslate"><span class="pre">read_jsonc()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.io_util.write_dict"><code class="docutils literal notranslate"><span class="pre">write_dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.io_util.write_jsonc"><code class="docutils literal notranslate"><span class="pre">write_jsonc()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.string_util">For string</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.circle_number"><code class="docutils literal notranslate"><span class="pre">circle_number()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.class_name"><code class="docutils literal notranslate"><span class="pre">class_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.convert_to_fraction"><code class="docutils literal notranslate"><span class="pre">convert_to_fraction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.remove_space"><code class="docutils literal notranslate"><span class="pre">remove_space()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.table_to_str"><code class="docutils literal notranslate"><span class="pre">table_to_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.string_util.wrap_string"><code class="docutils literal notranslate"><span class="pre">wrap_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.list_util">For list</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.list_util.flatten"><code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.list_util.list_to_table"><code class="docutils literal notranslate"><span class="pre">list_to_table()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.list_util.regularize_table"><code class="docutils literal notranslate"><span class="pre">regularize_table()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.crystal_util">For crystal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.crystal_util.cell_transform_matrix"><code class="docutils literal notranslate"><span class="pre">cell_transform_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.convert_util">Converter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.is_valid_sympy"><code class="docutils literal notranslate"><span class="pre">is_valid_sympy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.sympy_to_complex"><code class="docutils literal notranslate"><span class="pre">sympy_to_complex()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.sympy_to_float"><code class="docutils literal notranslate"><span class="pre">sympy_to_float()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.sympy_to_latex"><code class="docutils literal notranslate"><span class="pre">sympy_to_latex()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.sympy_to_mathematica"><code class="docutils literal notranslate"><span class="pre">sympy_to_mathematica()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.sympy_to_str"><code class="docutils literal notranslate"><span class="pre">sympy_to_str()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.text_to_list"><code class="docutils literal notranslate"><span class="pre">text_to_list()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.convert_util.text_to_sympy"><code class="docutils literal notranslate"><span class="pre">text_to_sympy()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.latex_util">LaTeX</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.latex_util.check_latex_installed"><code class="docutils literal notranslate"><span class="pre">check_latex_installed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.latex_util.latex_setting"><code class="docutils literal notranslate"><span class="pre">latex_setting()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.latex_util.latex_version"><code class="docutils literal notranslate"><span class="pre">latex_version()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

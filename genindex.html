@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+
+
+<html lang="jp" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; GCoreUtils</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=8cf54648"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="jp"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">GCoreUtils</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="src/array.html">Data Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/la.html">Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/utils.html">General Utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="src/misc.html">Misc.</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Change Log</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="src/change_log.html">Change Logs (not in tags)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/CMT-MU/GCoreUtils.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/misc.html#gcoreutils.binary_manager.BinaryManager.__init__">__init__() (BinaryManager method)</a>
+
+      <ul>
+        <li><a href="src/array.html#gcoreutils.dataset.DataSet.__init__">(DataSet method)</a>
+</li>
+        <li><a href="src/misc.html#gcoreutils.pdf_via_latex.PDFviaLaTeX.__init__">(PDFviaLaTeX method)</a>
+</li>
+        <li><a href="src/misc.html#gcoreutils.symdict.SymDict.__init__">(SymDict method)</a>
+</li>
+        <li><a href="src/misc.html#gcoreutils.symlist.SymList.__init__">(SymList method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.append">append() (DataSet method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/utils.html#gcoreutils.basic_util.apply">apply() (in module gcoreutils.basic_util)</a>
+
+      <ul>
+        <li><a href="src/array.html#gcoreutils.nsarray.NSArray.apply">(NSArray method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/misc.html#gcoreutils.binary_manager.BinaryManager">BinaryManager (class in gcoreutils.binary_manager)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.cancel">cancel() (NSArray method)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.crystal_util.cell_transform_matrix">cell_transform_matrix() (in module gcoreutils.crystal_util)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.latex_util.check_latex_installed">check_latex_installed() (in module gcoreutils.latex_util)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.string_util.circle_number">circle_number() (in module gcoreutils.string_util)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.string_util.class_name">class_name() (in module gcoreutils.string_util)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.clip">clip() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.concat">concat() (NSArray class method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.convert_bond">convert_bond() (NSArray method)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.string_util.convert_to_fraction">convert_to_fraction() (in module gcoreutils.string_util)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.create_bond_from_pair">create_bond_from_pair() (NSArray class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet">DataSet (class in gcoreutils.dataset)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.det">det() (NSArray method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.diagonalize_hermite">diagonalize_hermite() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.distance">distance() (NSArray class method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.dot">dot() (NSArray class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/la.html#gcoreutils.eigensystem.eigensystem">eigensystem() (in module gcoreutils.eigensystem)</a>
+</li>
+      <li><a href="src/misc.html#gcoreutils.pdf_via_latex.PDFviaLaTeX.equation">equation() (PDFviaLaTeX method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.evalf">evalf() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.expand">expand() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.extract">extract() (DataSet method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.factor">factor() (NSArray method)</a>
+</li>
+      <li><a href="src/misc.html#gcoreutils.pdf_via_latex.PDFviaLaTeX.figure">figure() (PDFviaLaTeX method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/utils.html#gcoreutils.list_util.flatten">flatten() (in module gcoreutils.list_util)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.fmt">fmt (NSArray attribute)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.from_str">from_str() (NSArray class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    gcoreutils.basic_util
+
+      <ul>
+        <li><a href="src/utils.html#module-gcoreutils.basic_util">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.binary_manager
+
+      <ul>
+        <li><a href="src/misc.html#module-gcoreutils.binary_manager">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.convert_util
+
+      <ul>
+        <li><a href="src/utils.html#module-gcoreutils.convert_util">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.crystal_util
+
+      <ul>
+        <li><a href="src/utils.html#module-gcoreutils.crystal_util">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.dataset
+
+      <ul>
+        <li><a href="src/array.html#module-gcoreutils.dataset">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.eigensystem
+
+      <ul>
+        <li><a href="src/la.html#module-gcoreutils.eigensystem">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.io_util
+
+      <ul>
+        <li><a href="src/utils.html#module-gcoreutils.io_util">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.latex_util
+
+      <ul>
+        <li><a href="src/utils.html#module-gcoreutils.latex_util">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    gcoreutils.list_util
+
+      <ul>
+        <li><a href="src/utils.html#module-gcoreutils.list_util">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.nsarray
+
+      <ul>
+        <li><a href="src/array.html#module-gcoreutils.nsarray">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.pdf_via_latex
+
+      <ul>
+        <li><a href="src/misc.html#module-gcoreutils.pdf_via_latex">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.string_util
+
+      <ul>
+        <li><a href="src/utils.html#module-gcoreutils.string_util">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.symdict
+
+      <ul>
+        <li><a href="src/misc.html#module-gcoreutils.symdict">module</a>
+</li>
+      </ul></li>
+      <li>
+    gcoreutils.symlist
+
+      <ul>
+        <li><a href="src/misc.html#module-gcoreutils.symlist">module</a>
+</li>
+      </ul></li>
+      <li><a href="src/utils.html#gcoreutils.basic_util.get_variable">get_variable() (in module gcoreutils.basic_util)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.grid">grid() (NSArray class method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.grid_path">grid_path() (NSArray class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.header">header (DataSet property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.igrid">igrid() (NSArray class method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.im">im() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.index">index() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.indexed">indexed() (DataSet method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.inverse">inverse() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.is_empty">is_empty (NSArray property)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.is_real">is_real (NSArray attribute)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.convert_util.is_valid_sympy">is_valid_sympy() (in module gcoreutils.convert_util)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.lambdify">lambdify() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.latex">latex() (NSArray method)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.latex_util.latex_setting">latex_setting() (in module gcoreutils.latex_util)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.latex_util.latex_version">latex_version() (in module gcoreutils.latex_util)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/utils.html#gcoreutils.list_util.list_to_table">list_to_table() (in module gcoreutils.list_util)</a>
+</li>
+      <li><a href="src/misc.html#gcoreutils.binary_manager.BinaryManager.load">load() (BinaryManager method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.load_csv">load_csv() (DataSet method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.lst">lst (NSArray attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    module
+
+      <ul>
+        <li><a href="src/utils.html#module-gcoreutils.basic_util">gcoreutils.basic_util</a>
+</li>
+        <li><a href="src/misc.html#module-gcoreutils.binary_manager">gcoreutils.binary_manager</a>
+</li>
+        <li><a href="src/utils.html#module-gcoreutils.convert_util">gcoreutils.convert_util</a>
+</li>
+        <li><a href="src/utils.html#module-gcoreutils.crystal_util">gcoreutils.crystal_util</a>
+</li>
+        <li><a href="src/array.html#module-gcoreutils.dataset">gcoreutils.dataset</a>
+</li>
+        <li><a href="src/la.html#module-gcoreutils.eigensystem">gcoreutils.eigensystem</a>
+</li>
+        <li><a href="src/utils.html#module-gcoreutils.io_util">gcoreutils.io_util</a>
+</li>
+        <li><a href="src/utils.html#module-gcoreutils.latex_util">gcoreutils.latex_util</a>
+</li>
+        <li><a href="src/utils.html#module-gcoreutils.list_util">gcoreutils.list_util</a>
+</li>
+        <li><a href="src/array.html#module-gcoreutils.nsarray">gcoreutils.nsarray</a>
+</li>
+        <li><a href="src/misc.html#module-gcoreutils.pdf_via_latex">gcoreutils.pdf_via_latex</a>
+</li>
+        <li><a href="src/utils.html#module-gcoreutils.string_util">gcoreutils.string_util</a>
+</li>
+        <li><a href="src/misc.html#module-gcoreutils.symdict">gcoreutils.symdict</a>
+</li>
+        <li><a href="src/misc.html#module-gcoreutils.symlist">gcoreutils.symlist</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.norm">norm() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.normalize">normalize() (NSArray method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray">NSArray (class in gcoreutils.nsarray)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.numpy">numpy() (NSArray method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.orthogonalize">orthogonalize() (NSArray class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/misc.html#gcoreutils.pdf_via_latex.PDFviaLaTeX">PDFviaLaTeX (class in gcoreutils.pdf_via_latex)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.radsimp">radsimp() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.re">re() (NSArray method)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.io_util.read_dict">read_dict() (in module gcoreutils.io_util)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.io_util.read_jsonc">read_jsonc() (in module gcoreutils.io_util)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.regular_direction">regular_direction() (NSArray method)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.list_util.regularize_table">regularize_table() (in module gcoreutils.list_util)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.remove">remove() (DataSet method)</a>
+
+      <ul>
+        <li><a href="src/array.html#gcoreutils.nsarray.NSArray.remove">(NSArray method)</a>
+</li>
+      </ul></li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.remove_duplicate">remove_duplicate() (NSArray method)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.string_util.remove_space">remove_space() (in module gcoreutils.string_util)</a>
+</li>
+      <li><a href="src/misc.html#gcoreutils.symdict.SymDict.remove_zero">remove_zero() (SymDict method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.reverse_direction">reverse_direction() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.role">role (DataSet property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.save_csv">save_csv() (DataSet method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.self">self (DataSet attribute)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.semi_evalf">semi_evalf() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.set_header">set_header() (DataSet method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.set_role">set_role() (DataSet method)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.basic_util.set_variable">set_variable() (in module gcoreutils.basic_util)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.shape">shape (NSArray property)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.shift">shift() (NSArray method)</a>
+</li>
+      <li><a href="src/misc.html#gcoreutils.pdf_via_latex.PDFviaLaTeX.simple_table">simple_table() (PDFviaLaTeX method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.simplify">simplify() (NSArray method)</a>
+
+      <ul>
+        <li><a href="src/misc.html#gcoreutils.symdict.SymDict.simplify">(SymDict method)</a>
+</li>
+        <li><a href="src/misc.html#gcoreutils.symlist.SymList.simplify">(SymList method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.sort">sort() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.str">str() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.style">style (NSArray attribute)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.subs">subs() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.sum">sum() (NSArray method)</a>
+</li>
+      <li><a href="src/misc.html#gcoreutils.symdict.SymDict">SymDict (class in gcoreutils.symdict)</a>
+</li>
+      <li><a href="src/misc.html#gcoreutils.symlist.SymList">SymList (class in gcoreutils.symlist)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.sympy">sympy() (NSArray method)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.convert_util.sympy_to_complex">sympy_to_complex() (in module gcoreutils.convert_util)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.convert_util.sympy_to_float">sympy_to_float() (in module gcoreutils.convert_util)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.convert_util.sympy_to_latex">sympy_to_latex() (in module gcoreutils.convert_util)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.convert_util.sympy_to_mathematica">sympy_to_mathematica() (in module gcoreutils.convert_util)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.convert_util.sympy_to_str">sympy_to_str() (in module gcoreutils.convert_util)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/misc.html#gcoreutils.pdf_via_latex.PDFviaLaTeX.table">table() (PDFviaLaTeX method)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.string_util.table_to_str">table_to_str() (in module gcoreutils.string_util)</a>
+</li>
+      <li><a href="src/misc.html#gcoreutils.pdf_via_latex.PDFviaLaTeX.text">text() (PDFviaLaTeX method)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.convert_util.text_to_list">text_to_list() (in module gcoreutils.convert_util)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/utils.html#gcoreutils.convert_util.text_to_sympy">text_to_sympy() (in module gcoreutils.convert_util)</a>
+</li>
+      <li><a href="src/misc.html#gcoreutils.pdf_via_latex.PDFviaLaTeX.title">title() (PDFviaLaTeX method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.dataset.DataSet.to_data">to_data() (DataSet method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.transform">transform() (NSArray method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.value">value() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.var">var (NSArray attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.variable">variable() (NSArray method)</a>
+</li>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.vector3d">vector3d() (NSArray class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/utils.html#gcoreutils.string_util.wrap_string">wrap_string() (in module gcoreutils.string_util)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/utils.html#gcoreutils.io_util.write_dict">write_dict() (in module gcoreutils.io_util)</a>
+</li>
+      <li><a href="src/utils.html#gcoreutils.io_util.write_jsonc">write_jsonc() (in module gcoreutils.io_util)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/array.html#gcoreutils.nsarray.NSArray.zeros">zeros() (NSArray class method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
