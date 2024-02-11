@@ -345,7 +345,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.binary_manager">Binary data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager"><code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager.__init__"><code class="docutils literal notranslate"><span class="pre">BinaryManager.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager.load"><code class="docutils literal notranslate"><span class="pre">BinaryManager.load()</span></code></a></li>
 </ul>
 </li>
@@ -353,7 +352,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.pdf_via_latex">PDF via LaTeX</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.__init__"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.equation"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.equation()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.figure"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.figure()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.simple_table"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.simple_table()</span></code></a></li>
@@ -366,7 +364,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.symdict">Calculatable dictionary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict"><code class="docutils literal notranslate"><span class="pre">SymDict</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.__init__"><code class="docutils literal notranslate"><span class="pre">SymDict.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.remove_zero"><code class="docutils literal notranslate"><span class="pre">SymDict.remove_zero()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.simplify"><code class="docutils literal notranslate"><span class="pre">SymDict.simplify()</span></code></a></li>
 </ul>
@@ -375,7 +372,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.symlist">Calculatable list</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList"><code class="docutils literal notranslate"><span class="pre">SymList</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList.__init__"><code class="docutils literal notranslate"><span class="pre">SymList.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList.simplify"><code class="docutils literal notranslate"><span class="pre">SymList.simplify()</span></code></a></li>
 </ul>
 </li>
@@ -418,11 +414,7 @@ document.write(`
 <dt class="sig sig-object py" id="gcoreutils.binary_manager.BinaryManager">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BinaryManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bin_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/binary_manager.html#BinaryManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.binary_manager.BinaryManager" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
-<p>binary data manager.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="gcoreutils.binary_manager.BinaryManager.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bin_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/binary_manager.html#BinaryManager.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.binary_manager.BinaryManager.__init__" title="Link to this definition">#</a></dt>
-<dd><p>initialize the class.</p>
+<p>initialize the class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -431,8 +423,6 @@ document.write(`
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="gcoreutils.binary_manager.BinaryManager.load">
 <span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/binary_manager.html#BinaryManager.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.binary_manager.BinaryManager.load" title="Link to this definition">#</a></dt>
@@ -449,11 +439,7 @@ document.write(`
 <dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PDFviaLaTeX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'normal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">landscape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">english</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>PDF creation via LaTeX.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'normal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">landscape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">english</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.__init__" title="Link to this definition">#</a></dt>
-<dd><p>initialize the class.</p>
+<p>initialize the class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -468,8 +454,6 @@ document.write(`
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="gcoreutils.pdf_via_latex.PDFviaLaTeX.equation">
 <span class="sig-name descname"><span class="pre">equation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/pdf_via_latex.html#PDFviaLaTeX.equation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.equation" title="Link to this definition">#</a></dt>
@@ -579,10 +563,7 @@ document.write(`
 <dt class="sig sig-object py" id="gcoreutils.symdict.SymDict">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SymDict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symdict.html#SymDict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symdict.SymDict" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="gcoreutils.symdict.SymDict.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symdict.html#SymDict.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symdict.SymDict.__init__" title="Link to this definition">#</a></dt>
-<dd><p>initialize dict.</p>
+<p>initialize dict.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -591,8 +572,6 @@ document.write(`
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="gcoreutils.symdict.SymDict.remove_zero">
 <span class="sig-name descname"><span class="pre">remove_zero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symdict.html#SymDict.remove_zero"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symdict.SymDict.remove_zero" title="Link to this definition">#</a></dt>
@@ -620,12 +599,7 @@ document.write(`
 <dt class="sig sig-object py" id="gcoreutils.symlist.SymList">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SymList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symlist.html#SymList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symlist.SymList" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="gcoreutils.symlist.SymList.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symlist.html#SymList.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symlist.SymList.__init__" title="Link to this definition">#</a></dt>
-<dd><p>initialize list.</p>
-</dd></dl>
-
+<p>initialize list.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gcoreutils.symlist.SymList.simplify">
 <span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'factor'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gcoreutils/symlist.html#SymList.simplify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gcoreutils.symlist.SymList.simplify" title="Link to this definition">#</a></dt>
@@ -684,7 +658,6 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.binary_manager">Binary data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager"><code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager.__init__"><code class="docutils literal notranslate"><span class="pre">BinaryManager.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.binary_manager.BinaryManager.load"><code class="docutils literal notranslate"><span class="pre">BinaryManager.load()</span></code></a></li>
 </ul>
 </li>
@@ -692,7 +665,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.pdf_via_latex">PDF via LaTeX</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.__init__"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.equation"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.equation()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.figure"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.figure()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.pdf_via_latex.PDFviaLaTeX.simple_table"><code class="docutils literal notranslate"><span class="pre">PDFviaLaTeX.simple_table()</span></code></a></li>
@@ -705,7 +677,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.symdict">Calculatable dictionary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict"><code class="docutils literal notranslate"><span class="pre">SymDict</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.__init__"><code class="docutils literal notranslate"><span class="pre">SymDict.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.remove_zero"><code class="docutils literal notranslate"><span class="pre">SymDict.remove_zero()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symdict.SymDict.simplify"><code class="docutils literal notranslate"><span class="pre">SymDict.simplify()</span></code></a></li>
 </ul>
@@ -714,7 +685,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gcoreutils.symlist">Calculatable list</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList"><code class="docutils literal notranslate"><span class="pre">SymList</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList.__init__"><code class="docutils literal notranslate"><span class="pre">SymList.__init__()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gcoreutils.symlist.SymList.simplify"><code class="docutils literal notranslate"><span class="pre">SymList.simplify()</span></code></a></li>
 </ul>
 </li>
