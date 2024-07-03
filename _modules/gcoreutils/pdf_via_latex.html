@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -325,8 +325,6 @@ document.write(`
     <span class="c1">#    __pos (dict): position string</span>
     <span class="c1">#</span>
     <span class="c1"># ==================================================</span>
-<div class="viewcode-block" id="PDFviaLaTeX.__init__">
-<a class="viewcode-back" href="../../src/misc.html#gcoreutils.pdf_via_latex.PDFviaLaTeX.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="p">[],</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">no_page</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">landscape</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">english</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        initialize the class.</span>
@@ -367,8 +365,7 @@ document.write(`
             <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\end</span><span class="si">{matrix}</span><span class="s2">\right]&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\end</span><span class="si">{pmatrix}</span><span class="s2">&quot;</span><span class="p">),</span>
         <span class="p">]</span>  <span class="c1">#: replace string (target, replace)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__pos</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="s2">&quot;flushleft&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="s2">&quot;flushright&quot;</span><span class="p">}</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pos</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">:</span> <span class="s2">&quot;flushleft&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="s2">&quot;flushright&quot;</span><span class="p">}</span>
 
     <span class="c1"># ==================================================</span>
     <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

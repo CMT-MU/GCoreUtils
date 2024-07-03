@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -320,8 +320,6 @@ document.write(`
     <span class="c1">#    __verbose (bool): show info. ?</span>
     <span class="c1">#</span>
     <span class="c1"># ==================================================</span>
-<div class="viewcode-block" id="BinaryManager.__init__">
-<a class="viewcode-back" href="../../src/misc.html#gcoreutils.binary_manager.BinaryManager.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bin_dir</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        initialize the class.</span>
@@ -334,8 +332,7 @@ document.write(`
         <span class="k">if</span> <span class="n">bin_dir</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
             <span class="n">bin_dir</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__bin_directory</span> <span class="o">=</span> <span class="n">bin_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__verbose</span> <span class="o">=</span> <span class="n">verbose</span></div>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">__verbose</span> <span class="o">=</span> <span class="n">verbose</span>
 
     <span class="c1"># ==================================================</span>
     <span class="k">def</span> <span class="nf">_dprint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">s</span><span class="p">):</span>

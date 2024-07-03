@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -317,8 +317,6 @@ document.write(`
     <span class="c1"># self._role (dict): { name: [role] }</span>
 
     <span class="c1"># ==================================================</span>
-<div class="viewcode-block" id="DataSet.__init__">
-<a class="viewcode-back" href="../../src/array.html#gcoreutils.dataset.DataSet.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        initialize the class.</span>
@@ -342,8 +340,7 @@ document.write(`
                 <span class="n">data1</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">data1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="n">data1</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">data1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_create_dataset</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">data1</span><span class="p">)</span></div>
-
+            <span class="bp">self</span><span class="o">.</span><span class="n">_create_dataset</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">data1</span><span class="p">)</span>
 
     <span class="c1"># ==================================================</span>
     <span class="k">def</span> <span class="nf">_create_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">role</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
